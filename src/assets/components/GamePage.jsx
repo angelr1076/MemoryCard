@@ -27,6 +27,10 @@ function GamePage() {
     // Find the card that was clicked
     const card = cards.find(card => card.id === id);
 
+    if (currentScore + 1 > bestScore) {
+      setBestScore(currentScore + 1);
+    }
+
     // Check if the card has already been clicked
     if (card.clicked) {
       // Reset the game
@@ -51,6 +55,7 @@ function GamePage() {
             key={card.id}
             image={card.image}
             onClick={() => handleCardClick(card.id)}
+            isFlipped={card.clicked}
           />
         ))}
       </div>

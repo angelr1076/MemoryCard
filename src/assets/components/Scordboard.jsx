@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function Scoreboard({ currentScore, bestScore }) {
   return (
     <div>
@@ -8,5 +10,10 @@ function Scoreboard({ currentScore, bestScore }) {
     </div>
   );
 }
+
+Scoreboard.propTypes = {
+  currentScore: PropTypes.number.isRequired,
+  bestScore: PropTypes.number.isRequired,
+};
 
 export { Scoreboard };
