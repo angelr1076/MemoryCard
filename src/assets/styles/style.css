@@ -18,6 +18,9 @@
   --dark-bg: #213547;
   --purplish: #646cff;
   --purplish-hover: #535bf2;
+  --poke-red: #ef5350;
+  --poke-yellow: #feca1b;
+  --poke-yellow-hover: #dba91f;
 }
 
 #root {
@@ -66,15 +69,20 @@ h1 {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Landing  */
 .play {
-  background-color: var(--purplish);
-  color: var(--white);
+  background-color: var(--poke-yellow);
+  color: var(--dark-bg);
   transition: background-color 0.3s ease-in-out;
 }
 
 .play:hover {
-  background-color: var(--purplish-hover);
-  color: var(--white);
+  background-color: var(--poke-yellow-hover);
+  color: var(--dark-bg);
+}
+
+.title {
+  color: var(--poke-red);
 }
 
 .card-logo {
@@ -87,6 +95,58 @@ h1 {
   transform: scale(0.99);
   filter: drop-shadow(0 0 2em var(--white));
   cursor: pointer;
+}
+
+/* GameBoard */
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  gap: 2em;
+}
+
+/* Scoreboard */
+.scores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1280px;
+  gap: 2em;
+}
+
+/* Card */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 2em;
+  margin: 0 auto;
+  max-width: 400px;
+  gap: 2em;
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.25);
+}
+
+.card:hover {
+  transform: scale(0.99);
+  filter: drop-shadow(0 0 2em var(--purplish));
+  cursor: pointer;
+}
+
+.card:active {
+  transform: scale(0.98);
+  filter: drop-shadow(0 0 2em var(--purplish));
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 @media (prefers-color-scheme: light) {
