@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Env files
+.env
+
+# Time tracking files
+vite.config.js.timestamp-*.mjs
+
+# Local Netlify folder
+.netlify
+
+#Misc
+todos.md
