@@ -11,6 +11,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Colors */
+  --white: #fff;
+  --light-bg: #f9f9f9;
+  --dark-bg: #213547;
+  --purplish: #646cff;
+  --purplish-hover: #535bf2;
 }
 
 #root {
@@ -22,11 +29,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--purplish);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--purplish-hover);
 }
 
 body {
@@ -49,59 +56,49 @@ h1 {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--dark-bg);
   cursor: pointer;
   transition: border-color 0.25s;
 }
-.btn:hover {
-  border-color: #646cff;
-}
+
 .btn:focus,
 .btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 .play {
-  background-color: #535bf2;
-  color: white;
+  background-color: var(--purplish);
+  color: var(--white);
   transition: background-color 0.3s ease-in-out;
 }
 
 .play:hover {
-  background-color: #646cff;
-  color: white;
+  background-color: var(--purplish-hover);
+  color: var(--white);
 }
 
 .card-logo {
   height: 10em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  will-change: transform;
+  transition: transform 300ms, filter 300ms;
 }
 .card-logo:hover {
-  filter: drop-shadow(0 0 2em #bfc0d4aa);
+  transform: scale(0.99);
+  filter: drop-shadow(0 0 2em var(--white));
   cursor: pointer;
 }
 
-/* @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--dark-bg);
+    background-color: var(--light-bg);
   }
   a:hover {
-    color: #747bff;
+    color: var(--purplish-hover);
   }
   .btn {
-    background-color: #f9f9f9;
+    background-color: var(--light-bg);
   }
 }
 
