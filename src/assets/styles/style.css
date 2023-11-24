@@ -63,11 +63,13 @@ h1 {
 
 .play {
   background-color: #535bf2;
+  color: white;
   transition: background-color 0.3s ease-in-out;
 }
 
 .play:hover {
   background-color: #646cff;
+  color: white;
 }
 
 .card-logo {

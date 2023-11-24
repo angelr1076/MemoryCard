@@ -1,21 +1,17 @@
-import cards from './assets/images/cards.svg';
 import './assets/styles/style.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LandingPage } from './assets/components/LandingPage';
+import { GamePage } from './assets/components/GamePage';
 
 function App() {
   return (
     <>
-      <div>
-        <div className='card-container'>
-          <img src={cards} className='card-logo' alt='Card logo' />
-        </div>
-      </div>
-      <h1>Memory Card</h1>
-      <div className='card'>
-        <button className='play btn'>Play</button>
-        <p>
-          Click on &quot;Play&quot; to start the game. <br />
-        </p>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/game' element={<GamePage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
