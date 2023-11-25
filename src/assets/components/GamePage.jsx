@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Scoreboard } from './Scordboard';
+import { Scoreboard } from './Scoreboard';
 import { Card } from './Card';
 
 function GamePage() {
   const [cards, setCards] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [animationTrigger, setAnimationTrigger] = useState(0);
 
   useEffect(() => {
     // Call PokeAPI
@@ -14,52 +15,78 @@ function GamePage() {
       .then(data => {
         const cards = data.results.map((pokemon, index) => ({
           id: index,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-            index + 1
-          }.png`,
+          image:
+            `https://github.com/sashafirsov/pokeapi-sprites/blob/master/sprites/pokemon/other/dream-world/${
+              index + 1
+            }.svg?raw=true` || '../images/pokeball.svg',
         }));
 
         setCards(cards);
       });
   }, []);
 
+  function shuffleArray(array) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle
+    while (currentIndex !== 0) {
+      // Pick a remaining element
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+
   function handleCardClick(id) {
     // Find the card that was clicked
     const card = cards.find(card => card.id === id);
+    const shuffledCards = shuffleArray([...cards]);
+    setAnimationTrigger(count => count + 1);
 
-    if (currentScore + 1 > bestScore) {
-      setBestScore(currentScore + 1);
-    }
-
-    // Check if the card has already been clicked
     if (card.clicked) {
       // Reset the game
-      setCards(cards.map(card => ({ ...card, clicked: false })));
+      setCards(shuffledCards.map(card => ({ ...card, clicked: false })));
       setCurrentScore(0);
+      // Shake cards animationTrigger
     } else {
-      // Update the card to clicked
+      // Update the card to clicked true
       setCards(
-        cards.map(card => (card.id === id ? { ...card, clicked: true } : card))
+        shuffledCards.map(card =>
+          card.id === id ? { ...card, clicked: true } : card
+        )
       );
       setCurrentScore(currentScore + 1);
+
+      // Update the best score
+      if (currentScore + 1 > highScore) {
+        setHighScore(currentScore + 1);
+      }
     }
   }
 
   return (
-    <div>
+    <>
       <h1>Let&apos;s Play</h1>
-      <Scoreboard currentScore={currentScore} bestScore={bestScore} />
+      <Scoreboard currentScore={currentScore} highScore={highScore} />
       <div className='game-board'>
         {cards.map(card => (
           <Card
-            key={card.id}
+            key={`${card.id}-${animationTrigger}`}
             image={card.image}
             onClick={() => handleCardClick(card.id)}
-            isFlipped={card.clicked}
+            className='card-shuffle-animation'
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

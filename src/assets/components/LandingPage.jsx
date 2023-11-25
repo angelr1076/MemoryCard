@@ -1,6 +1,6 @@
 // LandingPage.jsx
 import { Link } from 'react-router-dom';
-import cards from '../images/cards.svg';
+import pikachu from '../images/pikachu.svg';
 import '../styles/style.css';
 
 function LandingPage() {
@@ -8,7 +8,7 @@ function LandingPage() {
     <div className='landing'>
       <div className='link-container'>
         <Link to='/game'>
-          <img src={cards} className='card-logo' alt='Card logo' />
+          <img src={pikachu} className='pikachu-logo' alt='Card logo' />
         </Link>
       </div>
 
