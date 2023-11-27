@@ -16,6 +16,7 @@ function GamePage() {
         const cards = data.results.map((pokemon, index) => ({
           id: index,
           image:
+            // Poke API image library
             `https://github.com/sashafirsov/pokeapi-sprites/blob/master/sprites/pokemon/other/dream-world/${
               index + 1
             }.svg?raw=true` || '../images/pokeball.svg',
@@ -26,7 +27,8 @@ function GamePage() {
   }, []);
 
   function shuffleArray(array) {
-    let currentIndex = array.length,
+    let newArray = [...array];
+    let currentIndex = newArray.length,
       randomIndex;
 
     // While there remain elements to shuffle
@@ -36,13 +38,13 @@ function GamePage() {
       currentIndex--;
 
       // And swap it with the current element
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
+      [newArray[currentIndex], newArray[randomIndex]] = [
+        newArray[randomIndex],
+        newArray[currentIndex],
       ];
     }
 
-    return array;
+    return newArray;
   }
 
   function handleCardClick(id) {
@@ -52,10 +54,9 @@ function GamePage() {
     setAnimationTrigger(count => count + 1);
 
     if (card.clicked) {
-      // Reset the game
+      // Reset the game if the same card was clicked
       setCards(shuffledCards.map(card => ({ ...card, clicked: false })));
       setCurrentScore(0);
-      // Shake cards animationTrigger
     } else {
       // Update the card to clicked true
       setCards(
@@ -64,8 +65,7 @@ function GamePage() {
         )
       );
       setCurrentScore(currentScore + 1);
-
-      // Update the best score
+      // Update the high score
       if (currentScore + 1 > highScore) {
         setHighScore(currentScore + 1);
       }

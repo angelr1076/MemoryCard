@@ -131,7 +131,6 @@ h1 {
   padding: 0.5em;
   margin: 0 auto;
   width: 150px;
-  /* gap: 10em; */
   box-shadow: 0 0 2em rgba(0, 0, 0, 0.25);
 }
 
@@ -142,7 +141,7 @@ h1 {
 
 @keyframes shuffle {
   0% {
-    transform: rotateY(0);
+    transform: rotateY(0deg);
   }
   100% {
     transform: rotateY(360deg);
@@ -150,7 +149,7 @@ h1 {
 }
 
 .card-shuffle-animation {
-  animation: shuffle 0.7s ease forwards;
+  animation: shuffle 0.5s ease forwards;
 }
 
 .card:hover {
