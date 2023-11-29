@@ -14,11 +14,10 @@ function LandingPage() {
 
       <h1 className='title'>Poké Card!</h1>
       <div className='getStarted'>
-        <Link to='/game' className='play btn'>
-          Get Started
-        </Link>
+        <Link to='/game' className='play btn'></Link>
         <p style={{ marginTop: '2em' }}>
-          Click on &quot;Get Started&quot; to start the game. <br />
+          Click on the <strong>ball</strong> or <strong>Pikachu</strong> to
+          start the game. <br />
         </p>
       </div>
     </div>

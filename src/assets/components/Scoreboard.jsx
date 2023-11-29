@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 function Scoreboard({ currentScore, highScore, shakeAnimation }) {
   return (
     <div>
-      <div className='scores'>
-        <h2 className={`current ${shakeAnimation}`}>
-          Current Score: {currentScore}
-        </h2>
-        <h2 className={`high ${shakeAnimation}`}>High Score: {highScore}</h2>
+      <div className={`scores ${shakeAnimation}`}>
+        <h2>Current Score: {currentScore}</h2>
+        <h2>High Score: {highScore}</h2>
       </div>
     </div>
   );
@@ -16,7 +14,7 @@ function Scoreboard({ currentScore, highScore, shakeAnimation }) {
 Scoreboard.propTypes = {
   currentScore: PropTypes.number.isRequired,
   highScore: PropTypes.number.isRequired,
-  shakeAnimation: PropTypes.string,
+  shakeAnimation: PropTypes.bool,
 };
 
 export { Scoreboard };

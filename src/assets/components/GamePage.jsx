@@ -73,7 +73,6 @@ function GamePage() {
 
   return (
     <>
-      <h1>Let&apos;s Play</h1>
       <Scoreboard
         currentScore={currentScore}
         highScore={highScore}

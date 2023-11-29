@@ -77,6 +77,16 @@ h1 {
 }
 
 /* Landing  */
+.play {
+  border-radius: 50%;
+  border: none;
+  background-image: -webkit-linear-gradient(
+    180deg,
+    var(--light-bg) 50%,
+    var(--dark-bg) 50%
+  );
+}
+
 .play,
 .back {
   background-color: var(--poke-yellow);
@@ -129,11 +139,14 @@ h1 {
 /* Scoreboard */
 .scores {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 0 auto;
-  max-width: 1280px;
-  gap: 2em;
+  margin: 2em auto;
+  max-width: 700px;
+  box-shadow: 0.5em 0.5em 5em var(--poke-brown);
+  text-shadow: 0 0 2em var(--poke-brown);
+  border-radius: 10px;
+  border: 5px solid var(--dark-bg);
 }
 
 /* Card */
