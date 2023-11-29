@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+import { FaHome } from 'react-icons/fa';
 
 function Scoreboard({ currentScore, highScore, shakeAnimation }) {
   return (
     <div>
       <div className={`scores ${shakeAnimation}`}>
         <h2>Current Score: {currentScore}</h2>
+        <button className='btn-alt'>
+          <FaHome />
+        </button>
         <h2>High Score: {highScore}</h2>
       </div>
     </div>

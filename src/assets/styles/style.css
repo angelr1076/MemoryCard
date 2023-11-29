@@ -29,6 +29,7 @@
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 1em;
 }
 
 a {
@@ -72,8 +73,22 @@ h1 {
 }
 
 .btn:focus,
-.btn:focus-visible {
+.btn:focus-visible,
+.btn-alt:focus,
+.btn-alt:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-alt {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--dark-bg);
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
 /* Landing  */
@@ -140,7 +155,7 @@ h1 {
 .scores {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: baseline;
   margin: 2em auto;
   max-width: 700px;
   box-shadow: 0.5em 0.5em 5em var(--poke-brown);
@@ -156,11 +171,10 @@ h1 {
   align-items: center;
   position: relative;
   width: 150px;
-  height: 150px;
+  height: 200px;
   perspective: 1000px;
   background-color: var(--dark-bg);
   border-radius: 8px;
-  box-shadow: 0 0 2em rgba(0, 0, 0, 0.25);
 }
 
 .card:hover {
