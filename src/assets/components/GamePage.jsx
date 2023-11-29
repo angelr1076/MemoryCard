@@ -7,6 +7,7 @@ function GamePage() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [animationTrigger, setAnimationTrigger] = useState(0); // Used as a counter to force the Card component to re-render
+  const [shakeAnimation, setShakeAnimation] = useState(false);
 
   useEffect(() => {
     // Call PokeAPI
@@ -32,8 +33,8 @@ function GamePage() {
     const shuffledCards = shuffleArray([...cards]);
 
     if (card.clicked) {
-      // Reset the game if the same card was clicked
-      setCards(shuffledCards.map(card => ({ ...card, clicked: false })));
+      // Reset the game if the same card was clicked twice
+      setCards(cards.map(card => ({ ...card, clicked: false })));
       setCurrentScore(0);
     } else {
       setCards(
@@ -73,7 +74,11 @@ function GamePage() {
   return (
     <>
       <h1>Let&apos;s Play</h1>
-      <Scoreboard currentScore={currentScore} highScore={highScore} />
+      <Scoreboard
+        currentScore={currentScore}
+        highScore={highScore}
+        shakeAnimation={shakeAnimation}
+      />
       <div className='game-board'>
         {cards.map(card => (
           <Card
