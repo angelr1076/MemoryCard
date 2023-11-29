@@ -2,11 +2,32 @@ import { useState, useEffect } from 'react';
 import { Scoreboard } from './Scoreboard';
 import { Card } from './Card';
 
+function shuffleArray(array) {
+  let newArray = [...array];
+  let currentIndex = newArray.length,
+    randomIndex;
+
+  // While there remain elements to shuffle
+  while (currentIndex !== 0) {
+    // Pick a remaining element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element
+    [newArray[currentIndex], newArray[randomIndex]] = [
+      newArray[randomIndex],
+      newArray[currentIndex],
+    ];
+  }
+
+  return newArray;
+}
+
 function GamePage() {
   const [cards, setCards] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [animationTrigger, setAnimationTrigger] = useState(0);
+  const [animationTrigger, setAnimationTrigger] = useState(0); // Used as a counter to force the Card component to re-render
 
   useEffect(() => {
     // Call PokeAPI
@@ -26,39 +47,16 @@ function GamePage() {
       });
   }, []);
 
-  function shuffleArray(array) {
-    let newArray = [...array];
-    let currentIndex = newArray.length,
-      randomIndex;
-
-    // While there remain elements to shuffle
-    while (currentIndex !== 0) {
-      // Pick a remaining element
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element
-      [newArray[currentIndex], newArray[randomIndex]] = [
-        newArray[randomIndex],
-        newArray[currentIndex],
-      ];
-    }
-
-    return newArray;
-  }
-
   function handleCardClick(id) {
-    // Find the card that was clicked
+    setAnimationTrigger(count => count + 1);
     const card = cards.find(card => card.id === id);
     const shuffledCards = shuffleArray([...cards]);
-    setAnimationTrigger(count => count + 1);
 
     if (card.clicked) {
       // Reset the game if the same card was clicked
       setCards(shuffledCards.map(card => ({ ...card, clicked: false })));
       setCurrentScore(0);
     } else {
-      // Update the card to clicked true
       setCards(
         shuffledCards.map(card =>
           card.id === id ? { ...card, clicked: true } : card
