@@ -2,27 +2,6 @@ import { useState, useEffect } from 'react';
 import { Scoreboard } from './Scoreboard';
 import { Card } from './Card';
 
-function shuffleArray(array) {
-  let newArray = [...array];
-  let currentIndex = newArray.length,
-    randomIndex;
-
-  // While there remain elements to shuffle
-  while (currentIndex !== 0) {
-    // Pick a remaining element
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element
-    [newArray[currentIndex], newArray[randomIndex]] = [
-      newArray[randomIndex],
-      newArray[currentIndex],
-    ];
-  }
-
-  return newArray;
-}
-
 function GamePage() {
   const [cards, setCards] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
@@ -68,6 +47,27 @@ function GamePage() {
         setHighScore(currentScore + 1);
       }
     }
+  }
+
+  function shuffleArray(array) {
+    let newArray = [...array];
+    let currentIndex = newArray.length,
+      randomIndex;
+
+    // While there remain elements to shuffle
+    while (currentIndex !== 0) {
+      // Pick a remaining element
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element
+      [newArray[currentIndex], newArray[randomIndex]] = [
+        newArray[randomIndex],
+        newArray[currentIndex],
+      ];
+    }
+
+    return newArray;
   }
 
   return (

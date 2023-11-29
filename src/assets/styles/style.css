@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #242424;
   background-color: #242424;
 
   font-synthesis: none;
@@ -16,6 +16,7 @@
   --white: #fff;
   --light-bg: #f9f9f9;
   --dark-bg: #213547;
+  --gray: #a0aec0;
   --purplish: #646cff;
   --purplish-hover: #535bf2;
   --poke-red: #ef5350;
@@ -45,6 +46,12 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--poke-red);
+  background-image: -webkit-linear-gradient(
+    30deg,
+    var(--poke-red) 50%,
+    var(--light-bg) 50%
+  );
 }
 
 h1 {
@@ -78,7 +85,12 @@ h1 {
   will-change: filter;
 }
 
-.play:hover,
+.play:hover {
+  background-color: var(--poke-yellow-hover);
+  color: var(--dark-bg);
+  filter: drop-shadow(0 0 2em var(--poke-brown));
+}
+
 .back:hover {
   background-color: var(--poke-yellow-hover);
   color: var(--dark-bg);
@@ -86,7 +98,9 @@ h1 {
 }
 
 .title {
-  color: var(--poke-red);
+  color: var(--poke-brown);
+  font-size: 3.5em;
+  font-weight: 700;
 }
 
 .pikachu-logo {
@@ -94,9 +108,10 @@ h1 {
   will-change: transform;
   transition: transform 300ms, filter 300ms;
 }
+
 .pikachu-logo:hover {
   transform: scale(0.99);
-  filter: drop-shadow(0 0 2em var(--white));
+  filter: drop-shadow(0 0 2em var(--poke-brown));
   cursor: pointer;
 }
 
@@ -130,9 +145,14 @@ h1 {
   width: 150px;
   height: 150px;
   perspective: 1000px;
-  background-color: var(--poke-brown);
+  background-color: var(--dark-bg);
   border-radius: 8px;
   box-shadow: 0 0 2em rgba(0, 0, 0, 0.25);
+}
+
+.card:hover {
+  filter: drop-shadow(0 0 2em var(--poke-brown));
+  cursor: pointer;
 }
 
 .card-inner {
@@ -195,7 +215,7 @@ h1 {
 }
 
 .card-front {
-  background-color: var(--poke-brown);
+  background-color: var(--dark-bg);
   border-radius: 8px;
 }
 
@@ -217,11 +237,6 @@ h1 {
   100% {
     opacity: 0;
   }
-}
-
-.card:hover {
-  filter: drop-shadow(0 0 2em var(--light-bg));
-  cursor: pointer;
 }
 
 @media (prefers-color-scheme: light) {

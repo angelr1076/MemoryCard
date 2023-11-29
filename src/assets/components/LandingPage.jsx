@@ -12,7 +12,7 @@ function LandingPage() {
         </Link>
       </div>
 
-      <h1 className='title'>Poké Memo Cards</h1>
+      <h1 className='title'>Poké Card!</h1>
       <div className='getStarted'>
         <Link to='/game' className='play btn'>
           Get Started
