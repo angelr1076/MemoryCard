@@ -28,22 +28,22 @@ function GamePage() {
   }, []);
 
   function handleCardClick(id) {
-    setAnimationTrigger(count => count + 1);
     const card = cards.find(card => card.id === id);
-    const shuffledCards = shuffleArray([...cards]);
 
     if (card.clicked) {
-      // Reset the game if the same card was clicked twice
+      setShakeAnimation(true);
       setCards(cards.map(card => ({ ...card, clicked: false })));
       setCurrentScore(0);
+      setTimeout(() => setShakeAnimation(false), 500);
     } else {
+      setAnimationTrigger(count => count + 1);
+      const shuffledCards = shuffleArray([...cards]);
       setCards(
         shuffledCards.map(card =>
           card.id === id ? { ...card, clicked: true } : card
         )
       );
       setCurrentScore(currentScore + 1);
-      // Update the high score
       if (currentScore + 1 > highScore) {
         setHighScore(currentScore + 1);
       }

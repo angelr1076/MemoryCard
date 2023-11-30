@@ -16,6 +16,7 @@
   --white: #fff;
   --light-bg: #f9f9f9;
   --dark-bg: #213547;
+  --mid-black: #363535;
   --gray: #a0aec0;
   --purplish: #646cff;
   --purplish-hover: #535bf2;
@@ -61,25 +62,6 @@ h1 {
 }
 
 .btn {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--dark-bg);
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-.btn:focus,
-.btn:focus-visible,
-.btn-alt:focus,
-.btn-alt:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.btn-alt {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -155,13 +137,71 @@ h1 {
 .scores {
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   margin: 2em auto;
   max-width: 700px;
-  box-shadow: 0.5em 0.5em 5em var(--poke-brown);
-  text-shadow: 0 0 2em var(--poke-brown);
   border-radius: 10px;
-  border: 5px solid var(--dark-bg);
+  border: 5px solid var(--mid-black);
+  color: var(--white);
+  background-color: var(--dark-bg);
+  transition: box-shadow 0.2s ease;
+}
+
+.instruction {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: var(--mid-black);
+  margin: 1em auto;
+}
+
+.scores:hover {
+  box-shadow: 0.5em 0.5em 2em var(--poke-brown);
+  cursor: pointer;
+}
+
+.btn:focus,
+.btn:focus-visible,
+.btn-alt:focus,
+.btn-alt:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-alt {
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 2em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+}
+
+.btn-alt:hover {
+  color: var(--gray);
+  filter: drop-shadow(0 0 2em var(--light-bg));
+}
+
+@keyframes shakeAnimation {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shakeAnimation 0.5s ease-in-out;
 }
 
 /* Card */
