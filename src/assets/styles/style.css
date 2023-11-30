@@ -218,7 +218,7 @@ h1 {
 }
 
 .card:hover {
-  filter: drop-shadow(0 0 2em var(--poke-brown));
+  filter: drop-shadow(0 0 2em var(--purplish-hover));
   cursor: pointer;
 }
 
