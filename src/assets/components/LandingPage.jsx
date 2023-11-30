@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Title } from './Title';
 import pikachu from '../images/pikachu.svg';
 import '../styles/style.css';
 
@@ -11,7 +12,7 @@ function LandingPage() {
         </Link>
       </div>
 
-      <h1 className='title'>Poké Card!</h1>
+      <Title />
       <div className='getStarted'>
         <Link
           to='/game'

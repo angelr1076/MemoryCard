@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Scoreboard } from './Scoreboard';
 import { Card } from './Card';
+import { Title } from './Title';
 
 function GamePage() {
   const [cards, setCards] = useState([]);
@@ -73,6 +74,7 @@ function GamePage() {
 
   return (
     <>
+      <Title />
       <Scoreboard
         currentScore={currentScore}
         highScore={highScore}
