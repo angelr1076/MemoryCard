@@ -55,7 +55,7 @@ function GamePage() {
     let currentIndex = newArray.length,
       randomIndex;
 
-    // While there remain elements to shuffle
+    // While there are elements to shuffle
     while (currentIndex !== 0) {
       // Pick a remaining element
       randomIndex = Math.floor(Math.random() * currentIndex);
