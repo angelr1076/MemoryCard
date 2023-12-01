@@ -1,4 +1,6 @@
-# Memory Card Game
+# Poké Card - Memory Card Game
+
+[Game Link](https://pokecardmemory.netlify.app/)
 
 ## Overview
 
