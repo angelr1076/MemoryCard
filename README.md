@@ -19,4 +19,9 @@ This project is a modern, interactive memory card game built with React. It leve
 4. Contributing
    a. Contributions are welcome! Feel free to open a pull request or an issue to suggest improvements or add new features.
 
-This README provides an overview of the project, highlights its main features, and gives basic instructions for setting it up locally. Adjust the GitHub repository URL (https://github.com/your-username/MemoryCard.git) as per your actual repository details.
+## Screenshots
+
+![Landing Page](./src/assets/images/poke-landing.png 'landing page')
+![Game Page](./src/assets/images/gamepage.png 'game page')
+![Modal Example Lose](./src/assets/images/poke-landing.png 'example of modal for game lost')
+![Modal Example Win](./src/assets/images/win-screen.png 'example of modal for game won')
