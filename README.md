@@ -18,8 +18,7 @@ This project is a modern, interactive memory card game built with React. It leve
 1. Clone the repository: `git clone https://github.com/angelr1076/MemoryCard.git`
 2. Install dependencies: `npm install`
 3. Start the development server on port 3000: `npm run dev`
-4. Contributing
-   a. Contributions are welcome! Feel free to open a pull request or an issue to suggest improvements or add new features.
+4. Contributions are welcome! Feel free to open a pull request or an issue to suggest improvements or add new features.
 
 ## Screenshots
 
