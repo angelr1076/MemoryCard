@@ -23,5 +23,5 @@ This project is a modern, interactive memory card game built with React. It leve
 
 ![Landing Page](./src/assets/images/poke-landing.png 'landing page')
 ![Game Page](./src/assets/images/gamepage.png 'game page')
-![Modal Example Lose](./src/assets/images/poke-landing.png 'example of modal for game lost')
+![Modal Example Lose](./src/assets/images/lose-screen.png 'example of modal for game lost')
 ![Modal Example Win](./src/assets/images/win-screen.png 'example of modal for game won')
