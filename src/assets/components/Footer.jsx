@@ -4,8 +4,7 @@ function Footer() {
   return (
     <footer className='footer'>
       <p>
-        Created by Angel Rodriguez © {new Date().getFullYear()} link to my
-        github
+        Created by Angel Rodriguez © {new Date().getFullYear()}
         <a
           href='https://github.com/angelr1076/MemoryCard'
           target='_blank'
