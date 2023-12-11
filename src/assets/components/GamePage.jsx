@@ -40,7 +40,7 @@ function GamePage() {
     setTimeout(() => setShakeAnimation(false), 500);
     setShowModal(true);
     setTitle('Game Over!');
-    setMessage('You clicked the same card twice!');
+    setMessage('You picked the same card twice!');
     setButtonText('Try Again?');
   }
 
@@ -50,7 +50,7 @@ function GamePage() {
     setHighScore(0);
     setShowModal(true);
     setTitle('You Won!');
-    setMessage('You clicked all the right cards!');
+    setMessage('You picked all the right cards!');
     setButtonText('Play Again?');
   }
 
