@@ -17,6 +17,7 @@ function LandingPage() {
         <Link
           to='/game'
           className='play btn'
+          alt='Play button'
           style={{ border: '3px solid #213547' }}></Link>
         <div className='instruction'>
           <span style={{ marginTop: '2em' }}>
