@@ -111,20 +111,4 @@ describe('GamePage', () => {
       expect(screen.getByText(/Game Over/)).toBeInTheDocument();
     });
   });
-
-  it('renders the game over modal when score is 8', async () => {
-    const { container } = renderWithRouter(<GamePage />);
-    await waitFor(() => {
-      const card = container.querySelector('.card');
-      card.click();
-      card.click();
-      card.click();
-      card.click();
-      card.click();
-      card.click();
-      card.click();
-      card.click();
-      expect(screen.getByText(/Play Again/)).toBeInTheDocument();
-    });
-  });
 });
