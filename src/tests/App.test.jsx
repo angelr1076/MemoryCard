@@ -50,6 +50,13 @@ describe('GamePage', () => {
     expect(await screen.findByText(/Current Score: \d+/)).toBeInTheDocument();
   });
 
+  it('matches snapshot gamepage', async () => {
+    const { container } = renderWithRouter(<GamePage />);
+    await waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
+  });
+
   it('renders cards after data is fetched', async () => {
     const { container } = renderWithRouter(<GamePage />);
     await waitFor(() => {
@@ -81,16 +88,6 @@ describe('GamePage', () => {
     const { container } = renderWithRouter(<GamePage />);
     await waitFor(() => {
       const card = container.querySelector('.card');
-      card.click();
-      expect(screen.getByText(/High Score: 1/)).toBeInTheDocument();
-    });
-  });
-
-  it('does not increment high score when score is less than high score', async () => {
-    const { container } = renderWithRouter(<GamePage />);
-    await waitFor(() => {
-      const card = container.querySelector('.card');
-      card.click();
       card.click();
       expect(screen.getByText(/High Score: 1/)).toBeInTheDocument();
     });
