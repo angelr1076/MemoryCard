@@ -30,7 +30,7 @@ function GamePage() {
             `Something went wrong! HTTP status ${response.status}`
           );
         }
-        let actualData = await response.json();
+        const actualData = await response.json();
         setData(actualData);
         const cards = actualData.results.map((pokemon, index) => ({
           id: index,
