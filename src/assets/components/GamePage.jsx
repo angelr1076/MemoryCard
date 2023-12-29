@@ -14,13 +14,25 @@ function GamePage() {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [buttonText, setButtonText] = useState('');
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // Call PokeAPI
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=8')
-      .then(response => response.json())
-      .then(data => {
-        const cards = data.results.map((pokemon, index) => ({
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          'https://pokeapi.co/api/v2/pokemon?limit=8'
+        );
+        if (!response.ok) {
+          throw new Error(
+            `Something went wrong! HTTP status ${response.status}`
+          );
+        }
+        let actualData = await response.json();
+        setData(actualData);
+        const cards = actualData.results.map((pokemon, index) => ({
           id: index,
           image:
             // Poke API image library
@@ -30,7 +42,15 @@ function GamePage() {
         }));
 
         setCards(cards);
-      });
+        setError(null);
+      } catch (error) {
+        setError(error.message);
+        setData(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
   }, []);
 
   function gameOver() {
@@ -40,7 +60,7 @@ function GamePage() {
     setTimeout(() => setShakeAnimation(false), 500);
     setShowModal(true);
     setTitle('Game Over!');
-    setMessage('You picked the same card twice!');
+    setMessage('You chose the same card twice.');
     setButtonText('Try Again?');
   }
 
@@ -50,7 +70,7 @@ function GamePage() {
     setHighScore(0);
     setShowModal(true);
     setTitle('You Won!');
-    setMessage('You picked all the right cards!');
+    setMessage('You chose all the right cards!');
     setButtonText('Play Again?');
   }
 
@@ -87,7 +107,7 @@ function GamePage() {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      // And swap it with the current element
+      // Swap it with the current element
       [newArray[currentIndex], newArray[randomIndex]] = [
         newArray[randomIndex],
         newArray[currentIndex],
@@ -112,6 +132,18 @@ function GamePage() {
         highScore={highScore}
         shakeAnimation={shakeAnimation}
       />
+      {loading && <div>One moment please...</div>}
+      {error && (
+        <div
+          style={{
+            fontWeight: '800',
+            fontSize: '1.5rem',
+            padding: '1em',
+          }}>
+          There is a problem fetching the cards <br />
+          {error}
+        </div>
+      )}
       <div className='game-board'>
         {cards.map(card => (
           <Card
