@@ -1,6 +1,6 @@
-# Poké Card - Memory Card Game [![Netlify Status](https://api.netlify.com/api/v1/badges/d66c7738-f182-40f0-a964-81602614322a/deploy-status)](https://app.netlify.com/sites/pokecardmemory/deploys)
+# Poké Card - Memory Card Game
 
-[Game Link](https://pokecardmemory.netlify.app/)
+[Game Link](https://poke-cards.pages.dev/)
 
 ## Overview
 
